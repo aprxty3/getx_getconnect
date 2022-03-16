@@ -19,4 +19,9 @@ class UserProvider extends GetConnect {
 
     return post(url + "users.json", body);
   }
+
+  //DELETE
+  Future<Response> deleteData(String id) {
+    return delete(url + "users/$id.json");
+  }
 }

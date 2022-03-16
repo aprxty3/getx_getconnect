@@ -69,8 +69,13 @@ class UsersC extends GetxController {
       textConfirm: "Ya",
       confirmTextColor: Colors.white,
       onConfirm: () {
-        users.removeWhere((element) => element.id == id);
-        _deleted = true;
+        UserProvider().deleteData(id).then(
+          (_) {
+            users.removeWhere((element) => element.id == id);
+            _deleted = true;
+          },
+        );
+
         Get.back();
       },
       textCancel: "Tidak",
