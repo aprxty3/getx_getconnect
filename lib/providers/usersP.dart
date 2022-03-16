@@ -7,13 +7,11 @@ class UserProvider extends GetConnect {
 
   //POST
   Future<Response> postData(
-    String id,
     String name,
     String email,
     String phone,
   ) {
     final body = json.encode({
-      "id": id,
       "name": name,
       "email": email,
       "phone": phone,
