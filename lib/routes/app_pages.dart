@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import './route_name.dart';
 
 import '../bindings/profileB.dart';
