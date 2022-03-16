@@ -47,11 +47,14 @@ class UsersC extends GetxController {
   void edit(String id, String name, String email, String phone) {
     if (name != '' && email != '' && phone != '') {
       if (email.contains("@")) {
-        final user = userById(id);
-        user.name = name;
-        user.email = email;
-        user.phone = phone;
-        users.refresh();
+        UserProvider().editData(id, name, email, phone).then((_) {
+          final user = userById(id);
+          user.name = name;
+          user.email = email;
+          user.phone = phone;
+          users.refresh();
+        });
+
         Get.back();
       } else {
         snackBarError("Masukan email valid");
